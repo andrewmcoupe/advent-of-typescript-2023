@@ -14,3 +14,13 @@ type FindSanta2<T extends unknown[]> = T extends [...infer Head, infer Last]
     ? Head["length"]
     : FindSanta2<Head>
   : never;
+
+// My favourite ❤️‍🔥
+type FindSanta3<
+  T extends string[],
+  K extends keyof T = keyof T,
+> = K extends `${infer Index extends number}`
+  ? T[K] extends "🎅🏼"
+    ? Index
+    : never
+  : never;
