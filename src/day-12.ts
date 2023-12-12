@@ -7,3 +7,10 @@ type FindSanta<T extends unknown[], Count extends unknown[] = []> = T extends [
     ? Count["length"] // Return the length of the Count
     : FindSanta<Tail, [...Count, 0]> // If the first item is not Santa, recursively call FindSanta with the Tail and Count, adding a 0 to the Count to increment its length property
   : never; // If Santa is not found, return never
+
+// Without a counter
+type FindSanta2<T extends unknown[]> = T extends [...infer Head, infer Last]
+  ? Last extends "🎅🏼"
+    ? Head["length"]
+    : FindSanta2<Head>
+  : never;
