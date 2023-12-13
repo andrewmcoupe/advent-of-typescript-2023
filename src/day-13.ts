@@ -1,9 +1,9 @@
-type IncrementBy<
+type IncrementByOne<
   TNumber extends number,
   Acc extends number[] = [],
 > = TNumber extends Acc["length"]
   ? [...Acc, number]["length"]
-  : IncrementBy<TNumber, [...Acc, number]>;
+  : IncrementByOne<TNumber, [...Acc, number]>;
 
 type DayCounter<
   Start extends number,
@@ -11,4 +11,4 @@ type DayCounter<
   Acc extends any[] = [],
 > = Acc["length"] extends End
   ? Acc[number]
-  : DayCounter<Start, End, [...Acc, IncrementBy<Acc["length"]>]>;
+  : DayCounter<Start, End, [...Acc, IncrementByOne<Acc["length"]>]>;
