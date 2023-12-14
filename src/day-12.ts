@@ -1,3 +1,7 @@
+/*
+ * @link https://typehero.dev/challenge/day-12
+ * */
+
 type FindSanta<T extends unknown[], Count extends unknown[] = []> = T extends [
   // Setup Count as a store to track how many times we have not seen Santa
   infer Head, // Using infer, get the first item and store it as a temporary "variable" - Head
