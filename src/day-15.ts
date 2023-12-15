@@ -10,5 +10,5 @@ type BoxToys<
   ? $Acc
   : BoxToys<ToyName, NumberOfBoxes, [...$Acc, ToyName]>;
 
-type Test = BoxToys<"Andy", 3>;
+type Test = BoxToys<"Andy", 3 | 4>;
 //    ^?    type Test = [ 'Andy', 'Andy', 'Andy' ] | ["Andy", "Andy", "Andy", "Andy"]
