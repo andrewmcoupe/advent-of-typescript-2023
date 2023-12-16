@@ -2,15 +2,17 @@
  * @link https://typehero.dev/challenge/day-16
  * */
 
-type FindSanta<Forest extends Array<string[]>, $acc extends number[] = []> = [
-  $acc["length"],
-  FindIndex<Forest[$acc["length"]], "🎅🏼">,
-] extends [number, number]
-  ? [$acc["length"], FindIndex<Forest[$acc["length"]], "🎅🏼">]
+type Santa = "🎅🏼";
+
+type FindSanta<
+  Forest extends Array<unknown[]>,
+  $acc extends number[] = [],
+> = FindIndex<Forest[$acc["length"]], Santa> extends number
+  ? [$acc["length"], FindIndex<Forest[$acc["length"]], Santa>]
   : FindSanta<Forest, [...$acc, 0]>;
 
 type FindIndex<
-  T extends unknown[],
+  T extends Array<unknown>,
   Key,
   $count extends unknown[] = [],
 > = T extends [infer Head, ...infer Tail]
