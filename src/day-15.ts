@@ -12,3 +12,5 @@ type BoxToys<
 
 type Test = BoxToys<"Andy", 3 | 4>;
 //    ^?    type Test = [ 'Andy', 'Andy', 'Andy' ] | ["Andy", "Andy", "Andy", "Andy"]
+
+
