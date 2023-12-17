@@ -2,14 +2,6 @@
  * @link https://typehero.dev/challenge/day-17
  * */
 
-type RockPaperScissors = "👊🏻" | "🖐🏾" | "✌️";
-type Win = [["👊🏻", "🖐🏾"], ["✌️", "👊🏻"], ["🖐🏾", "✌️"]];
+type Win = ["👊🏻", "🖐🏾"] | ["✌🏽", "👊🏻"] | ["🖐🏾", "✌🏽"];
 
-type WhoWins<T extends RockPaperScissors, U extends RockPaperScissors> = [
-  T,
-  U,
-] extends Win[number]
-  ? "win"
-  : T extends U
-    ? "draw"
-    : "lose";
+type WhoWins<T, U> = T extends U ? "draw" : [T, U] extends Win ? "win" : "lose";
