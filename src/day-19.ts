@@ -18,3 +18,6 @@ type Clone<
   : [TItem, ...$acc] extends TQuantity
     ? $acc
     : Clone<TItem, TQuantity, [TItem, ...$acc]>;
+
+type Test = Rebuild<[2, 1, 3, 3, 1, 1, 2]>;
+// ["🛹", "🛹", "🚲", "🛴", "🛴", "🛴", "🏄", "🏄", "🏄", "🛹", "🚲", "🛴", "🛴"]
