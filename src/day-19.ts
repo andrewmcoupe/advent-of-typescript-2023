@@ -15,9 +15,7 @@ type Clone<
   $acc extends any[] = [],
 > = $acc["length"] extends TQuantity
   ? $acc
-  : [TItem, ...$acc] extends TQuantity
-    ? $acc
-    : Clone<TItem, TQuantity, [TItem, ...$acc]>;
+  : Clone<TItem, TQuantity, [TItem, ...$acc]>;
 
 type Test = Rebuild<[2, 1, 3, 3, 1, 1, 2]>;
 // ["🛹", "🛹", "🚲", "🛴", "🛴", "🛴", "🏄", "🏄", "🏄", "🛹", "🚲", "🛴", "🛴"]
